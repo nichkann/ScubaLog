@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B8211797152A3B2F00E29F44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8211796152A3B2F00E29F44 /* UIKit.framework */; };
+		B8211799152A3B2F00E29F44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8211798152A3B2F00E29F44 /* Foundation.framework */; };
+		B821179B152A3B2F00E29F44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B821179A152A3B2F00E29F44 /* CoreGraphics.framework */; };
+		B82117A1152A3B2F00E29F44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B821179F152A3B2F00E29F44 /* InfoPlist.strings */; };
+		B82117A3152A3B2F00E29F44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117A2152A3B2F00E29F44 /* main.m */; };
+		B82117A7152A3B2F00E29F44 /* ScubaLogAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117A6152A3B2F00E29F44 /* ScubaLogAppDelegate.m */; };
+		B82117AA152A3B2F00E29F44 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82117A8152A3B2F00E29F44 /* MainStoryboard.storyboard */; };
+		B82117AD152A3B3000E29F44 /* ScubaLogFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117AC152A3B3000E29F44 /* ScubaLogFirstViewController.m */; };
+		B82117AF152A3B3000E29F44 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117AE152A3B3000E29F44 /* first.png */; };
+		B82117B1152A3B3000E29F44 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117B0152A3B3000E29F44 /* first@2x.png */; };
+		B82117B4152A3B3000E29F44 /* ScubaLogSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117B3152A3B3000E29F44 /* ScubaLogSecondViewController.m */; };
+		B82117B6152A3B3000E29F44 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117B5152A3B3000E29F44 /* second.png */; };
+		B82117B8152A3B3000E29F44 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117B7152A3B3000E29F44 /* second@2x.png */; };
+		B82117C0152A3B3000E29F44 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82117BF152A3B3000E29F44 /* SenTestingKit.framework */; };
+		B82117C1152A3B3000E29F44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8211796152A3B2F00E29F44 /* UIKit.framework */; };
+		B82117C2152A3B3000E29F44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8211798152A3B2F00E29F44 /* Foundation.framework */; };
+		B82117CA152A3B3000E29F44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B82117C8152A3B3000E29F44 /* InfoPlist.strings */; };
+		B82117CD152A3B3000E29F44 /* ScubaLogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117CC152A3B3000E29F44 /* ScubaLogTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B82117C3152A3B3000E29F44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8211789152A3B2F00E29F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8211791152A3B2F00E29F44;
+			remoteInfo = ScubaLog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B8211792152A3B2F00E29F44 /* ScubaLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScubaLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8211796152A3B2F00E29F44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B8211798152A3B2F00E29F44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B821179A152A3B2F00E29F44 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B821179E152A3B2F00E29F44 /* ScubaLog-Info.plist */ = {isa = PBXFileReference; path = "ScubaLog-Info.plist"; sourceTree = "<group>"; };
+		B82117A0152A3B2F00E29F44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B82117A2152A3B2F00E29F44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B82117A4152A3B2F00E29F44 /* ScubaLog-Prefix.pch */ = {isa = PBXFileReference; path = "ScubaLog-Prefix.pch"; sourceTree = "<group>"; };
+		B82117A5152A3B2F00E29F44 /* ScubaLogAppDelegate.h */ = {isa = PBXFileReference; path = ScubaLogAppDelegate.h; sourceTree = "<group>"; };
+		B82117A6152A3B2F00E29F44 /* ScubaLogAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScubaLogAppDelegate.m; sourceTree = "<group>"; };
+		B82117A9152A3B2F00E29F44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		B82117AB152A3B2F00E29F44 /* ScubaLogFirstViewController.h */ = {isa = PBXFileReference; path = ScubaLogFirstViewController.h; sourceTree = "<group>"; };
+		B82117AC152A3B3000E29F44 /* ScubaLogFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScubaLogFirstViewController.m; sourceTree = "<group>"; };
+		B82117AE152A3B3000E29F44 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		B82117B0152A3B3000E29F44 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		B82117B2152A3B3000E29F44 /* ScubaLogSecondViewController.h */ = {isa = PBXFileReference; path = ScubaLogSecondViewController.h; sourceTree = "<group>"; };
+		B82117B3152A3B3000E29F44 /* ScubaLogSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScubaLogSecondViewController.m; sourceTree = "<group>"; };
+		B82117B5152A3B3000E29F44 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		B82117B7152A3B3000E29F44 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		B82117BE152A3B3000E29F44 /* ScubaLogTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScubaLogTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B82117BF152A3B3000E29F44 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B82117C7152A3B3000E29F44 /* ScubaLogTests-Info.plist */ = {isa = PBXFileReference; path = "ScubaLogTests-Info.plist"; sourceTree = "<group>"; };
+		B82117C9152A3B3000E29F44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B82117CB152A3B3000E29F44 /* ScubaLogTests.h */ = {isa = PBXFileReference; path = ScubaLogTests.h; sourceTree = "<group>"; };
+		B82117CC152A3B3000E29F44 /* ScubaLogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScubaLogTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B821178F152A3B2F00E29F44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8211797152A3B2F00E29F44 /* UIKit.framework in Frameworks */,
+				B8211799152A3B2F00E29F44 /* Foundation.framework in Frameworks */,
+				B821179B152A3B2F00E29F44 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B82117BA152A3B3000E29F44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B82117C0152A3B3000E29F44 /* SenTestingKit.framework in Frameworks */,
+				B82117C1152A3B3000E29F44 /* UIKit.framework in Frameworks */,
+				B82117C2152A3B3000E29F44 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B8211787152A3B2F00E29F44 = {
+			isa = PBXGroup;
+			children = (
+				B821179C152A3B2F00E29F44 /* ScubaLog */,
+				B82117C5152A3B3000E29F44 /* ScubaLogTests */,
+				B8211795152A3B2F00E29F44 /* Frameworks */,
+				B8211793152A3B2F00E29F44 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B8211793152A3B2F00E29F44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B8211792152A3B2F00E29F44 /* ScubaLog.app */,
+				B82117BE152A3B3000E29F44 /* ScubaLogTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8211795152A3B2F00E29F44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8211796152A3B2F00E29F44 /* UIKit.framework */,
+				B8211798152A3B2F00E29F44 /* Foundation.framework */,
+				B821179A152A3B2F00E29F44 /* CoreGraphics.framework */,
+				B82117BF152A3B3000E29F44 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B821179C152A3B2F00E29F44 /* ScubaLog */ = {
+			isa = PBXGroup;
+			children = (
+				B82117A5152A3B2F00E29F44 /* ScubaLogAppDelegate.h */,
+				B82117A6152A3B2F00E29F44 /* ScubaLogAppDelegate.m */,
+				B82117A8152A3B2F00E29F44 /* MainStoryboard.storyboard */,
+				B82117AB152A3B2F00E29F44 /* ScubaLogFirstViewController.h */,
+				B82117AC152A3B3000E29F44 /* ScubaLogFirstViewController.m */,
+				B82117AE152A3B3000E29F44 /* first.png */,
+				B82117B0152A3B3000E29F44 /* first@2x.png */,
+				B82117B2152A3B3000E29F44 /* ScubaLogSecondViewController.h */,
+				B82117B3152A3B3000E29F44 /* ScubaLogSecondViewController.m */,
+				B82117B5152A3B3000E29F44 /* second.png */,
+				B82117B7152A3B3000E29F44 /* second@2x.png */,
+				B821179D152A3B2F00E29F44 /* Supporting Files */,
+			);
+			path = ScubaLog;
+			sourceTree = "<group>";
+		};
+		B821179D152A3B2F00E29F44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B821179E152A3B2F00E29F44 /* ScubaLog-Info.plist */,
+				B821179F152A3B2F00E29F44 /* InfoPlist.strings */,
+				B82117A2152A3B2F00E29F44 /* main.m */,
+				B82117A4152A3B2F00E29F44 /* ScubaLog-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B82117C5152A3B3000E29F44 /* ScubaLogTests */ = {
+			isa = PBXGroup;
+			children = (
+				B82117CB152A3B3000E29F44 /* ScubaLogTests.h */,
+				B82117CC152A3B3000E29F44 /* ScubaLogTests.m */,
+				B82117C6152A3B3000E29F44 /* Supporting Files */,
+			);
+			path = ScubaLogTests;
+			sourceTree = "<group>";
+		};
+		B82117C6152A3B3000E29F44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B82117C7152A3B3000E29F44 /* ScubaLogTests-Info.plist */,
+				B82117C8152A3B3000E29F44 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B8211791152A3B2F00E29F44 /* ScubaLog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B82117D0152A3B3000E29F44 /* Build configuration list for PBXNativeTarget "ScubaLog" */;
+			buildPhases = (
+				B821178E152A3B2F00E29F44 /* Sources */,
+				B821178F152A3B2F00E29F44 /* Frameworks */,
+				B8211790152A3B2F00E29F44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScubaLog;
+			productName = ScubaLog;
+			productReference = B8211792152A3B2F00E29F44 /* ScubaLog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B82117BD152A3B3000E29F44 /* ScubaLogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B82117D3152A3B3000E29F44 /* Build configuration list for PBXNativeTarget "ScubaLogTests" */;
+			buildPhases = (
+				B82117B9152A3B3000E29F44 /* Sources */,
+				B82117BA152A3B3000E29F44 /* Frameworks */,
+				B82117BB152A3B3000E29F44 /* Resources */,
+				B82117BC152A3B3000E29F44 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B82117C4152A3B3000E29F44 /* PBXTargetDependency */,
+			);
+			name = ScubaLogTests;
+			productName = ScubaLogTests;
+			productReference = B82117BE152A3B3000E29F44 /* ScubaLogTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B8211789152A3B2F00E29F44 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ScubaLog;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Universität Rostock";
+			};
+			buildConfigurationList = B821178C152A3B2F00E29F44 /* Build configuration list for PBXProject "ScubaLog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B8211787152A3B2F00E29F44;
+			productRefGroup = B8211793152A3B2F00E29F44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B8211791152A3B2F00E29F44 /* ScubaLog */,
+				B82117BD152A3B3000E29F44 /* ScubaLogTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B8211790152A3B2F00E29F44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B82117A1152A3B2F00E29F44 /* InfoPlist.strings in Resources */,
+				B82117AA152A3B2F00E29F44 /* MainStoryboard.storyboard in Resources */,
+				B82117AF152A3B3000E29F44 /* first.png in Resources */,
+				B82117B1152A3B3000E29F44 /* first@2x.png in Resources */,
+				B82117B6152A3B3000E29F44 /* second.png in Resources */,
+				B82117B8152A3B3000E29F44 /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B82117BB152A3B3000E29F44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B82117CA152A3B3000E29F44 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B82117BC152A3B3000E29F44 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B821178E152A3B2F00E29F44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B82117A3152A3B2F00E29F44 /* main.m in Sources */,
+				B82117A7152A3B2F00E29F44 /* ScubaLogAppDelegate.m in Sources */,
+				B82117AD152A3B3000E29F44 /* ScubaLogFirstViewController.m in Sources */,
+				B82117B4152A3B3000E29F44 /* ScubaLogSecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B82117B9152A3B3000E29F44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B82117CD152A3B3000E29F44 /* ScubaLogTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B82117C4152A3B3000E29F44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8211791152A3B2F00E29F44 /* ScubaLog */;
+			targetProxy = B82117C3152A3B3000E29F44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B821179F152A3B2F00E29F44 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B82117A0152A3B2F00E29F44 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B82117A8152A3B2F00E29F44 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B82117A9152A3B2F00E29F44 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		B82117C8152A3B3000E29F44 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B82117C9152A3B3000E29F44 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B82117CE152A3B3000E29F44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B82117CF152A3B3000E29F44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B82117D1152A3B3000E29F44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScubaLog/ScubaLog-Prefix.pch";
+				INFOPLIST_FILE = "ScubaLog/ScubaLog-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B82117D2152A3B3000E29F44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScubaLog/ScubaLog-Prefix.pch";
+				INFOPLIST_FILE = "ScubaLog/ScubaLog-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B82117D4152A3B3000E29F44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ScubaLog.app/ScubaLog";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScubaLog/ScubaLog-Prefix.pch";
+				INFOPLIST_FILE = "ScubaLogTests/ScubaLogTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B82117D5152A3B3000E29F44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ScubaLog.app/ScubaLog";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScubaLog/ScubaLog-Prefix.pch";
+				INFOPLIST_FILE = "ScubaLogTests/ScubaLogTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B821178C152A3B2F00E29F44 /* Build configuration list for PBXProject "ScubaLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B82117CE152A3B3000E29F44 /* Debug */,
+				B82117CF152A3B3000E29F44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B82117D0152A3B3000E29F44 /* Build configuration list for PBXNativeTarget "ScubaLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B82117D1152A3B3000E29F44 /* Debug */,
+				B82117D2152A3B3000E29F44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B82117D3152A3B3000E29F44 /* Build configuration list for PBXNativeTarget "ScubaLogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B82117D4152A3B3000E29F44 /* Debug */,
+				B82117D5152A3B3000E29F44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B8211789152A3B2F00E29F44 /* Project object */;
+}
