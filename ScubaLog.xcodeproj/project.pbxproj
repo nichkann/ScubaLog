@@ -14,10 +14,8 @@
 		B82117A3152A3B2F00E29F44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117A2152A3B2F00E29F44 /* main.m */; };
 		B82117A7152A3B2F00E29F44 /* ScubaLogAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117A6152A3B2F00E29F44 /* ScubaLogAppDelegate.m */; };
 		B82117AA152A3B2F00E29F44 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82117A8152A3B2F00E29F44 /* MainStoryboard.storyboard */; };
-		B82117AD152A3B3000E29F44 /* ScubaLogFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117AC152A3B3000E29F44 /* ScubaLogFirstViewController.m */; };
 		B82117AF152A3B3000E29F44 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117AE152A3B3000E29F44 /* first.png */; };
 		B82117B1152A3B3000E29F44 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117B0152A3B3000E29F44 /* first@2x.png */; };
-		B82117B4152A3B3000E29F44 /* ScubaLogSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117B3152A3B3000E29F44 /* ScubaLogSecondViewController.m */; };
 		B82117B6152A3B3000E29F44 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117B5152A3B3000E29F44 /* second.png */; };
 		B82117B8152A3B3000E29F44 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117B7152A3B3000E29F44 /* second@2x.png */; };
 		B82117C0152A3B3000E29F44 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82117BF152A3B3000E29F44 /* SenTestingKit.framework */; };
@@ -25,6 +23,11 @@
 		B82117C2152A3B3000E29F44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8211798152A3B2F00E29F44 /* Foundation.framework */; };
 		B82117CA152A3B3000E29F44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B82117C8152A3B3000E29F44 /* InfoPlist.strings */; };
 		B82117CD152A3B3000E29F44 /* ScubaLogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117CC152A3B3000E29F44 /* ScubaLogTests.m */; };
+		B82117D8152A3C3200E29F44 /* LogBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117D7152A3C3200E29F44 /* LogBookListViewController.m */; };
+		B82117DB152A3C4800E29F44 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117DA152A3C4800E29F44 /* DataModel.m */; };
+		B82117E2152A3D4900E29F44 /* ScubaLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117E1152A3D4800E29F44 /* ScubaLog.m */; };
+		B82117E5152A45C200E29F44 /* DiveSite.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117E4152A45C200E29F44 /* DiveSite.m */; };
+		B82117EC152A8C8100E29F44 /* ScubaLogDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117EB152A8C8100E29F44 /* ScubaLogDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,27 +45,33 @@
 		B8211796152A3B2F00E29F44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B8211798152A3B2F00E29F44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B821179A152A3B2F00E29F44 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B821179E152A3B2F00E29F44 /* ScubaLog-Info.plist */ = {isa = PBXFileReference; path = "ScubaLog-Info.plist"; sourceTree = "<group>"; };
+		B821179E152A3B2F00E29F44 /* ScubaLog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScubaLog-Info.plist"; sourceTree = "<group>"; };
 		B82117A0152A3B2F00E29F44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B82117A2152A3B2F00E29F44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B82117A4152A3B2F00E29F44 /* ScubaLog-Prefix.pch */ = {isa = PBXFileReference; path = "ScubaLog-Prefix.pch"; sourceTree = "<group>"; };
-		B82117A5152A3B2F00E29F44 /* ScubaLogAppDelegate.h */ = {isa = PBXFileReference; path = ScubaLogAppDelegate.h; sourceTree = "<group>"; };
+		B82117A4152A3B2F00E29F44 /* ScubaLog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScubaLog-Prefix.pch"; sourceTree = "<group>"; };
+		B82117A5152A3B2F00E29F44 /* ScubaLogAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScubaLogAppDelegate.h; sourceTree = "<group>"; };
 		B82117A6152A3B2F00E29F44 /* ScubaLogAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScubaLogAppDelegate.m; sourceTree = "<group>"; };
 		B82117A9152A3B2F00E29F44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		B82117AB152A3B2F00E29F44 /* ScubaLogFirstViewController.h */ = {isa = PBXFileReference; path = ScubaLogFirstViewController.h; sourceTree = "<group>"; };
-		B82117AC152A3B3000E29F44 /* ScubaLogFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScubaLogFirstViewController.m; sourceTree = "<group>"; };
 		B82117AE152A3B3000E29F44 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		B82117B0152A3B3000E29F44 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		B82117B2152A3B3000E29F44 /* ScubaLogSecondViewController.h */ = {isa = PBXFileReference; path = ScubaLogSecondViewController.h; sourceTree = "<group>"; };
-		B82117B3152A3B3000E29F44 /* ScubaLogSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScubaLogSecondViewController.m; sourceTree = "<group>"; };
 		B82117B5152A3B3000E29F44 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		B82117B7152A3B3000E29F44 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		B82117BE152A3B3000E29F44 /* ScubaLogTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScubaLogTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82117BF152A3B3000E29F44 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		B82117C7152A3B3000E29F44 /* ScubaLogTests-Info.plist */ = {isa = PBXFileReference; path = "ScubaLogTests-Info.plist"; sourceTree = "<group>"; };
+		B82117C7152A3B3000E29F44 /* ScubaLogTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScubaLogTests-Info.plist"; sourceTree = "<group>"; };
 		B82117C9152A3B3000E29F44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B82117CB152A3B3000E29F44 /* ScubaLogTests.h */ = {isa = PBXFileReference; path = ScubaLogTests.h; sourceTree = "<group>"; };
+		B82117CB152A3B3000E29F44 /* ScubaLogTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScubaLogTests.h; sourceTree = "<group>"; };
 		B82117CC152A3B3000E29F44 /* ScubaLogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScubaLogTests.m; sourceTree = "<group>"; };
+		B82117D6152A3C3200E29F44 /* LogBookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogBookListViewController.h; sourceTree = "<group>"; };
+		B82117D7152A3C3200E29F44 /* LogBookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogBookListViewController.m; sourceTree = "<group>"; };
+		B82117D9152A3C4800E29F44 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		B82117DA152A3C4800E29F44 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		B82117E0152A3D4800E29F44 /* ScubaLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScubaLog.h; sourceTree = "<group>"; };
+		B82117E1152A3D4800E29F44 /* ScubaLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScubaLog.m; sourceTree = "<group>"; };
+		B82117E3152A45C200E29F44 /* DiveSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiveSite.h; sourceTree = "<group>"; };
+		B82117E4152A45C200E29F44 /* DiveSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiveSite.m; sourceTree = "<group>"; };
+		B82117EA152A8C8100E29F44 /* ScubaLogDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScubaLogDetailViewController.h; sourceTree = "<group>"; };
+		B82117EB152A8C8100E29F44 /* ScubaLogDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScubaLogDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,15 +131,21 @@
 		B821179C152A3B2F00E29F44 /* ScubaLog */ = {
 			isa = PBXGroup;
 			children = (
-				B82117A5152A3B2F00E29F44 /* ScubaLogAppDelegate.h */,
-				B82117A6152A3B2F00E29F44 /* ScubaLogAppDelegate.m */,
-				B82117A8152A3B2F00E29F44 /* MainStoryboard.storyboard */,
-				B82117AB152A3B2F00E29F44 /* ScubaLogFirstViewController.h */,
-				B82117AC152A3B3000E29F44 /* ScubaLogFirstViewController.m */,
+				B82117D9152A3C4800E29F44 /* DataModel.h */,
+				B82117DA152A3C4800E29F44 /* DataModel.m */,
+				B82117E0152A3D4800E29F44 /* ScubaLog.h */,
+				B82117E1152A3D4800E29F44 /* ScubaLog.m */,
+				B82117EA152A8C8100E29F44 /* ScubaLogDetailViewController.h */,
+				B82117EB152A8C8100E29F44 /* ScubaLogDetailViewController.m */,
+				B82117E3152A45C200E29F44 /* DiveSite.h */,
+				B82117E4152A45C200E29F44 /* DiveSite.m */,
 				B82117AE152A3B3000E29F44 /* first.png */,
 				B82117B0152A3B3000E29F44 /* first@2x.png */,
-				B82117B2152A3B3000E29F44 /* ScubaLogSecondViewController.h */,
-				B82117B3152A3B3000E29F44 /* ScubaLogSecondViewController.m */,
+				B82117D6152A3C3200E29F44 /* LogBookListViewController.h */,
+				B82117D7152A3C3200E29F44 /* LogBookListViewController.m */,
+				B82117A8152A3B2F00E29F44 /* MainStoryboard.storyboard */,
+				B82117A5152A3B2F00E29F44 /* ScubaLogAppDelegate.h */,
+				B82117A6152A3B2F00E29F44 /* ScubaLogAppDelegate.m */,
 				B82117B5152A3B3000E29F44 /* second.png */,
 				B82117B7152A3B3000E29F44 /* second@2x.png */,
 				B821179D152A3B2F00E29F44 /* Supporting Files */,
@@ -282,8 +297,11 @@
 			files = (
 				B82117A3152A3B2F00E29F44 /* main.m in Sources */,
 				B82117A7152A3B2F00E29F44 /* ScubaLogAppDelegate.m in Sources */,
-				B82117AD152A3B3000E29F44 /* ScubaLogFirstViewController.m in Sources */,
-				B82117B4152A3B3000E29F44 /* ScubaLogSecondViewController.m in Sources */,
+				B82117D8152A3C3200E29F44 /* LogBookListViewController.m in Sources */,
+				B82117DB152A3C4800E29F44 /* DataModel.m in Sources */,
+				B82117E2152A3D4900E29F44 /* ScubaLog.m in Sources */,
+				B82117E5152A45C200E29F44 /* DiveSite.m in Sources */,
+				B82117EC152A8C8100E29F44 /* ScubaLogDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +471,7 @@
 				B82117D2152A3B3000E29F44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B82117D3152A3B3000E29F44 /* Build configuration list for PBXNativeTarget "ScubaLogTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +480,7 @@
 				B82117D5152A3B3000E29F44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
