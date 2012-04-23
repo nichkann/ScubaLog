@@ -42,10 +42,10 @@
     if (([[NSFileManager defaultManager] fileExistsAtPath:path])) {
         NSData *data = [[NSData alloc] initWithContentsOfFile:path];
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-        scubaLogList = [unarchiver decodeObjectForKey:@"ScubaLogLists"];
+        self.scubaLogList = [unarchiver decodeObjectForKey:@"ScubaLogLists"];
         [unarchiver finishDecoding];
     } else {
-        scubaLogList = [[NSMutableArray alloc] initWithCapacity:20];
+        self.scubaLogList = [[NSMutableArray alloc] initWithCapacity:20];
     }
 }
 
@@ -65,8 +65,8 @@
     BOOL firsttime = [[NSUserDefaults standardUserDefaults] boolForKey:@"FirstTime"];
     if (firsttime) {
         ScubaLog *scubaLog = [[ScubaLog alloc] init];
-        scubaLog.name = @"First Dive";
-        [scubaLogList addObject:scubaLog];
+        scubaLog.diveSiteName = @"First Dive";
+        [self.scubaLogList addObject:scubaLog];
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"FirstTime"];
     }
 }

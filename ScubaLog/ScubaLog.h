@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "DiveSite.h"
 
-@interface ScubaLog : NSObject
+@interface ScubaLog : NSManagedObject
 
-@property (nonatomic, strong) DiveSite *diveSite;
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, retain) NSString *diveSiteName;
+@property (nonatomic, retain) NSDate *date;
+
 
 
 @end

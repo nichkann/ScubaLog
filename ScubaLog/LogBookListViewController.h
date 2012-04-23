@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DataModel.h"
 #import "ScubaLog.h"
 
-@interface LogBookListViewController : UITableViewController
+#import "ScubaLogDetailViewController.h"
 
-@property (nonatomic, strong) DataModel *dataModel;
+@interface LogBookListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 
 @end

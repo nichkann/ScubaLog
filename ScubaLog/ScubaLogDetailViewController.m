@@ -7,25 +7,68 @@
 //
 
 #import "ScubaLogDetailViewController.h"
+#import "DiveSitePickerViewController.h"
+#import "HUDView.h"
+#import "DiveSite.h"
 
 @interface ScubaLogDetailViewController ()
 
 @end
 
-@implementation ScubaLogDetailViewController
+@implementation ScubaLogDetailViewController{
+    NSString *_name;
+    NSDate *_date;
+    DiveSite *_diveSite;
+}
 
-- (id)initWithStyle:(UITableViewStyle)style
+@synthesize managedObjectContext;
+@synthesize scubaLogToEdit;
+
+@synthesize diveSiteNameLabel;
+@synthesize dateLabel;
+
+
+#pragma mark - inits & views
+
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+    if ((self = [super initWithCoder:aDecoder])) {
+        _name = @"empty name";
+        _date = [NSDate date];
     }
-    return self;
+    return  self;
+}
+
+- (NSString *)formatDate:(NSDate *)theDate
+{
+    static NSDateFormatter *formatter = nil;
+    if (formatter == nil) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterLongStyle];
+//        [formatter setTimeStyle:NSDateFormatterShortStyle];
+    }
+    
+    return [formatter stringFromDate:theDate];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (self.scubaLogToEdit != nil) {
+        self.title = @"Edit Dive Log";
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
+        self.diveSiteNameLabel.text = _name;
+        self.dateLabel.text = [self formatDate:_date];
+    }else {
+        self.diveSiteNameLabel.text = @"Pick Dive Site";
+        self.dateLabel.text = [self formatDate:[NSDate date]];
+    }
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -37,6 +80,8 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    self.dateLabel = nil;
+    self.diveSiteNameLabel = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -46,81 +91,108 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+#pragma mark - IBActions
+
+- (void)closeScreen
 {
-    // Return the number of sections.
-    return 1;
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (IBAction)cancel
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    [self closeScreen];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (IBAction)done:(id)sender
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    HUDView *hudView = [HUDView hudInView:self.navigationController.view animated:YES];
     
-    // Configure the cell...
+    ScubaLog *scubaLog = nil;
     
-    return cell;
+    if (self.scubaLogToEdit != nil) {
+        hudView.text = @"Updated";
+        scubaLog = self.scubaLogToEdit;
+    }else {
+        hudView.text = @"Added";
+        scubaLog = [NSEntityDescription insertNewObjectForEntityForName:@"ScubaLog" inManagedObjectContext:self.managedObjectContext];
+    }
+    
+    scubaLog.diveSiteName = self.diveSiteNameLabel.text;
+    scubaLog.date = _date;
+    
+    NSLog(@"name is : %@", scubaLog.diveSiteName);
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error: %@", error);
+        FATAL_CORE_DATA_ERROR(error);
+        return;
+    }
+    
+    [self performSelector:@selector(closeScreen) withObject:nil afterDelay:0.6];
+    
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+
+#pragma mark - setters
+
+- (void)setScubaLogToEdit:(ScubaLog *)newScubaLogToEdit
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    if (scubaLogToEdit != newScubaLogToEdit) {
+        scubaLogToEdit = newScubaLogToEdit;
+        _name = scubaLogToEdit.diveSiteName;
+        _date = scubaLogToEdit.date;
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    if ([segue.identifier isEqualToString:@"PickDiveSite"]){
+        DiveSitePickerViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.delegate = self;
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+#pragma mark - DiveSitePickerViewController Delagate
+- (void)diveSitePicker:(DiveSitePickerViewController *)controller didPickDiveSite:(DiveSite *)diveSite
 {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    _diveSite = diveSite;
+    self.diveSiteNameLabel.text = _diveSite.name;
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

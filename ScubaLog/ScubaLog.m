@@ -10,7 +10,7 @@
 
 @implementation ScubaLog
 
-@synthesize diveSite;
-@synthesize name;
+@dynamic diveSiteName;
+@dynamic date;
 
 @end

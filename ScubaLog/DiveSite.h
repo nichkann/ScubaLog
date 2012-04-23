@@ -2,14 +2,20 @@
 //  DiveSite.h
 //  ScubaLog
 //
-//  Created by Kann Vearasilp on 4/2/12.
+//  Created by Kann Vearasilp on 4/22/12.
 //  Copyright (c) 2012 Universität Rostock. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface DiveSite : NSObject <NSCoding>
 
-@property (nonatomic, strong) NSString *name;
+@interface DiveSite : NSManagedObject
+
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * rating;
+@property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) CLPlacemark *placemark;
 
 @end

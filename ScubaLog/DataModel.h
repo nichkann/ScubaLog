@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSMutableArray *scubaLogList;
 
+- (void)saveScubaLogLists;
+
 @end

@@ -1,24 +1,25 @@
 //
-//  LogBookListViewController.m
+//  DiveSitePickerViewController.m
 //  ScubaLog
 //
-//  Created by Kann Vearasilp on 4/2/12.
+//  Created by Kann Vearasilp on 4/22/12.
 //  Copyright (c) 2012 Universität Rostock. All rights reserved.
 //
 
-#import "LogBookListViewController.h"
+#import "DiveSitePickerViewController.h"
+#import "DiveSiteDetailViewController.h"
+#import "DiveSite.h"
 
-@interface LogBookListViewController ()
+@interface DiveSitePickerViewController ()
 
 @end
 
-@implementation LogBookListViewController{
+@implementation DiveSitePickerViewController{
     NSFetchedResultsController *fetchedResultsController;
 }
 
 @synthesize managedObjectContext;
-
-#pragma mark - inits
+@synthesize delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,18 +30,21 @@
     return self;
 }
 
+
+#pragma mark - FetchedResultsController
+
 - (NSFetchedResultsController *)fetchedResultsController
 {
     if (fetchedResultsController == nil) {
         
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"ScubaLog" inManagedObjectContext:self.managedObjectContext];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"DiveSite" inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
         
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
         
-        [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+        [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
         
         [fetchRequest setFetchBatchSize:20];
         
@@ -48,7 +52,7 @@
                                     initWithFetchRequest:fetchRequest
                                     managedObjectContext:self.managedObjectContext
                                     sectionNameKeyPath:nil
-                                    cacheName:@"ScubaLog"];
+                                    cacheName:@"Locations"];
         
         fetchedResultsController.delegate = self;
     }
@@ -65,36 +69,53 @@
 }
 
 
-#pragma mark - view functions
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-}
+#pragma mark - Views
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self performFetch];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    fetchedResultsController.delegate = nil;
+    fetchedResultsController = nil;
 }
+
+- (void)dealloc
+{
+    fetchedResultsController.delegate = nil;
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - IBActions
+
+- (void)closeScreen
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"AddDiveSite"]) {
+        DiveSiteDetailViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+    }else if ([segue.identifier isEqualToString:@"EditDiveSite"]) {
+        DiveSiteDetailViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        DiveSite *diveSite = [fetchedResultsController objectAtIndexPath:indexPath];
+        controller.diveSiteToEdit = diveSite;
+    }
 }
 
 #pragma mark - Table view data source
@@ -102,52 +123,58 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [[fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultsController sections] objectAtIndex:section];
-
     return [sectionInfo numberOfObjects];
-
-    
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    ScubaLog *scubaLog = [fetchedResultsController objectAtIndexPath:indexPath];
+    DiveSite *diveSite = [fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = scubaLog.diveSiteName;
+    if ([diveSite.name length] > 0) {
+        cell.textLabel.text = diveSite.name;
+    }else {
+        cell.textLabel.text = @"No Description";
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"LogBookListCell";
+    static NSString *CellIdentifier = @"DiveSiteCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    
-//    cell.detailTextLabel.text = @"detail text";
-//    cell.imageView.image = [UIImage imageNamed:@"first.png"];
+    // Configure the cell...
     
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
 
-
-
 #pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DiveSite *diveSite = [fetchedResultsController objectAtIndexPath:indexPath];
+    [self.delegate diveSitePicker:self didPickDiveSite:diveSite];
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"EditDiveSite" sender:cell];
+    
+}
 
 //swipe to delete
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ScubaLog *scubaLog = [fetchedResultsController objectAtIndexPath:indexPath];
-    [self.managedObjectContext deleteObject:scubaLog];
+    DiveSite *diveSite = [fetchedResultsController objectAtIndexPath:indexPath];
+    [self.managedObjectContext deleteObject:diveSite];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
@@ -157,23 +184,6 @@
     
 }
 
-#pragma mark - Segue
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"AddScubaLog"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
-        ScubaLogDetailViewController *controller = (ScubaLogDetailViewController *)navigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
-    }else if ([segue.identifier isEqualToString:@"EditScubaLog"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
-        ScubaLogDetailViewController *controller = (ScubaLogDetailViewController *)navigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        ScubaLog *scubaLog = [fetchedResultsController objectAtIndexPath:indexPath];
-        controller.scubaLogToEdit = scubaLog;
-    }
-}
 
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -240,3 +250,13 @@
 
 
 @end
+
+
+
+
+
+
+
+
+
+
