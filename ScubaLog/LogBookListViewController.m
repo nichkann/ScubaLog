@@ -163,11 +163,11 @@
 {
     if ([segue.identifier isEqualToString:@"AddScubaLog"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        ScubaLogDetailViewController *controller = (ScubaLogDetailViewController *)navigationController.topViewController;
+        DiveLogDetailViewController *controller = (DiveLogDetailViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }else if ([segue.identifier isEqualToString:@"EditScubaLog"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        ScubaLogDetailViewController *controller = (ScubaLogDetailViewController *)navigationController.topViewController;
+        DiveLogDetailViewController *controller = (DiveLogDetailViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         ScubaLog *scubaLog = [fetchedResultsController objectAtIndexPath:indexPath];

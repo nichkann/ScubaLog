@@ -20,6 +20,7 @@
 
 @synthesize managedObjectContext;
 @synthesize delegate;
+@synthesize currentScubaLog;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -52,7 +53,7 @@
                                     initWithFetchRequest:fetchRequest
                                     managedObjectContext:self.managedObjectContext
                                     sectionNameKeyPath:nil
-                                    cacheName:@"Locations"];
+                                    cacheName:@"DiveSites"];
         
         fetchedResultsController.delegate = self;
     }
@@ -74,7 +75,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self performFetch];
+    [self performFetch];    
 }
 
 - (void)viewDidUnload
@@ -82,6 +83,10 @@
     [super viewDidUnload];
     fetchedResultsController.delegate = nil;
     fetchedResultsController = nil;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
 }
 
 - (void)dealloc
@@ -108,6 +113,7 @@
 {
     if ([segue.identifier isEqualToString:@"AddDiveSite"]) {
         DiveSiteDetailViewController *controller = segue.destinationViewController;
+        controller.currentScubaLog = self.currentScubaLog;
         controller.managedObjectContext = self.managedObjectContext;
     }else if ([segue.identifier isEqualToString:@"EditDiveSite"]) {
         DiveSiteDetailViewController *controller = segue.destinationViewController;
@@ -115,6 +121,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         DiveSite *diveSite = [fetchedResultsController objectAtIndexPath:indexPath];
         controller.diveSiteToEdit = diveSite;
+        controller.currentScubaLog = self.currentScubaLog;
     }
 }
 

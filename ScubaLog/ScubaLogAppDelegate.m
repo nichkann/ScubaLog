@@ -8,7 +8,7 @@
 
 #import "ScubaLogAppDelegate.h"
 #import "LogBookListViewController.h"
-#import "ScubaLogDetailViewController.h"
+
 
 @implementation ScubaLogAppDelegate
 

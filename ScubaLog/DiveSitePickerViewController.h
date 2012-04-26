@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScubaLog.h"
 
 @class DiveSitePickerViewController;
 @class DiveSite;
@@ -20,6 +21,7 @@
 @interface DiveSitePickerViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) ScubaLog *currentScubaLog;
 @property (nonatomic, weak) id <DiveSitePickerViewControllerDelegate> delegate;
 
 @end

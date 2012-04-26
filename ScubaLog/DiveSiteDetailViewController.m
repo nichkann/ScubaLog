@@ -7,8 +7,11 @@
 //
 
 #import "DiveSiteDetailViewController.h"
+#import "DiveMapViewController.h"
 #import "HUDView.h"
+#import "MBProgressHUD.h"
 #import "DiveSite.h"
+
 
 @interface DiveSiteDetailViewController ()
 
@@ -26,10 +29,12 @@
     NSString *_name;
     double _latitude;
     double _longitude;
+    float _rating;
 }
 
 
 @synthesize diveSiteToEdit;
+@synthesize currentScubaLog;
 @synthesize placemark;
 @synthesize managedObjectContext;
 
@@ -37,6 +42,11 @@
 @synthesize diveSiteNameTextField;
 @synthesize latitudeLabel;
 @synthesize longitudeLabel;
+@synthesize ratingLabel;
+@synthesize rateViewLabel;
+
+
+#pragma mark - Views
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -53,12 +63,31 @@
 {
     [super viewDidLoad];
     
+    self.rateViewLabel.notSelectedImage = [UIImage imageNamed:@"kermit_empty.png"];
+    self.rateViewLabel.halfSelectedImage = [UIImage imageNamed:@"kermit_half.png"];
+    self.rateViewLabel.fullSelectedImage = [UIImage imageNamed:@"kermit_full.png"];
+    self.rateViewLabel.editable = NO;
+    self.rateViewLabel.maxRating = 5;
+    self.rateViewLabel.delegate = self;    
+    
+    
     if (self.diveSiteToEdit != nil) {
         self.title = @"Edit Dive Site";
-        
-//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
+        self.rateViewLabel.rating = _rating;
+
     }
     self.diveSiteNameTextField.text = _name;
+    self.latitudeLabel.text = [NSString stringWithFormat:@"%.8f", _latitude];
+    self.longitudeLabel.text = [NSString stringWithFormat:@"%.8f", _longitude];
+    if ([self.diveSiteToEdit.dive_logs count] > 1) {
+        self.ratingLabel.text = [NSString stringWithFormat:@"%.1f/5.0 from %d dives", _rating,[self.diveSiteToEdit.dive_logs count]];
+    }else {
+        self.ratingLabel.text = [NSString stringWithFormat:@"%.1f/5.0 from %d dive", _rating,[self.diveSiteToEdit.dive_logs count]];
+    }
+
+    
+    
+
 }
 
 - (void)viewDidUnload
@@ -69,6 +98,12 @@
     self.latitudeLabel = nil;
     self.longitudeLabel = nil;
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self showDiveSiteLocation];    
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -101,6 +136,9 @@
     diveSite.latitude = [NSNumber numberWithDouble:_latitude];
     diveSite.longitude = [NSNumber numberWithDouble:_longitude];
     diveSite.placemark = self.placemark;
+    
+    [diveSite updateRating];
+    
 
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
@@ -121,10 +159,24 @@
 {
     if (diveSiteToEdit != newDiveSiteToEdit) {
         diveSiteToEdit = newDiveSiteToEdit;
-        _name = newDiveSiteToEdit.name;
+        _name = diveSiteToEdit.name;
+        _longitude = [diveSiteToEdit.longitude doubleValue];
+        _latitude = [diveSiteToEdit.latitude doubleValue];
+        _rating = [diveSiteToEdit.rating floatValue];
     }
 }
 
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ShowDiveMap"]) {
+        DiveMapViewController *controller = segue.destinationViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.currentDiveSite = self.diveSiteToEdit;
+    }
+}
 
 #pragma mark - CLLocationManager
 
@@ -158,10 +210,7 @@
     if (location == nil) {
         [self stopLocationManager];
         
-        lastLocationError = [NSError errorWithDomain:@"MylocationErrorDomain" code:1 userInfo:nil];
-        
-//        [self updateLabels];
-//        [self configureGetButton];
+        lastLocationError = [NSError errorWithDomain:@"MyLocationErrorDomain" code:1 userInfo:nil];
     }
 }
 
@@ -172,6 +221,7 @@
         _latitude = location.coordinate.latitude;
         self.longitudeLabel.text = [NSString stringWithFormat:@"%.8f", location.coordinate.longitude];
         _longitude = location.coordinate.longitude;
+        
     }
     if (_placemark != nil) {
         self.placemark = _placemark;
@@ -179,8 +229,11 @@
 }
 
 
-- (void)getLocation
+# pragma mark - Map Stuffs
+
+- (IBAction)getCurrentLocation
 {
+ 
     if (updatingLocation) {
         [self stopLocationManager];
     }else {
@@ -188,8 +241,67 @@
         _placemark = nil;
         lastLocationError = nil;
         [self startLocationManager];
-    }    
+    }
+
     [self updateLabels];
+    NSLog(@"latitude %.8f",location.coordinate.latitude);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.diveSiteMap.userLocation.coordinate, 1000, 1000);
+    [self.diveSiteMap setRegion:region animated:YES];
+}
+
+- (IBAction)getLocationFromCurrentDiveLog
+{
+    if (self.currentScubaLog != nil) {
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([self.currentScubaLog coordinate], 1000, 1000);
+        [self.diveSiteMap setRegion:region animated:YES];
+        _latitude = [self.currentScubaLog.latitude doubleValue];
+        _longitude = [self.currentScubaLog.longitude doubleValue];
+        self.latitudeLabel.text = [NSString stringWithFormat:@"%.8f", _latitude];
+        self.longitudeLabel.text = [NSString stringWithFormat:@"%.8f", _longitude];
+        self.placemark = self.currentScubaLog.placemark;
+
+    }else {
+        [self getCurrentLocation];
+    }
+}
+
+- (void)showDiveSiteLocation
+{
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([self.diveSiteToEdit coordinate], 1000, 1000);
+    [self.diveSiteMap setRegion:region animated:YES];
+
+//    [self.diveSiteMap addAnnotation:self.diveSiteToEdit];
+    [self.diveSiteMap selectAnnotation:self.diveSiteToEdit animated:NO];
+}
+
+#pragma mark - MKMapViewDelegate
+
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    [self performSegueWithIdentifier:@"ShowDiveMap" sender:nil];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    static NSString *annotationIdentifier = @"DiveSite";
+    MKPinAnnotationView *pinAnnotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:annotationIdentifier];
+    
+    if (pinAnnotationView == nil) {
+        pinAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
+    }else {
+        pinAnnotationView.annotation = annotation;
+    }
+    
+    pinAnnotationView.enabled = YES;
+    pinAnnotationView.canShowCallout = YES;
+    pinAnnotationView.animatesDrop = YES;
+    UIButton *disclosuerButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    pinAnnotationView.rightCalloutAccessoryView = disclosuerButton;
+
+    return pinAnnotationView;
+
+
 }
 
 
@@ -213,7 +325,8 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     NSLog(@"didUpdateToLocation %@", newLocation);
-    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
+    hud.labelText = @"Getting Location...";    
     if ([newLocation.timestamp timeIntervalSinceNow] < -5.0) {
         return;
     }
@@ -234,6 +347,7 @@
         
         if (newLocation.horizontalAccuracy <= locationManager.desiredAccuracy) {
             NSLog(@"*** we are done!");
+            [MBProgressHUD hideHUDForView:self.tableView animated:YES];
             [self stopLocationManager];
             
             if (distance > 0) {
@@ -284,8 +398,6 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.tag == 100) {
         [self.diveSiteNameTextField becomeFirstResponder];
-    }else if (cell.tag == 101) {
-        [self getLocation];
     }else if (cell.tag == 102) {
         NSLog(@"Just tapped use dive site location");
     }
@@ -307,6 +419,13 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     _name = textField.text;
+}
+
+
+#pragma mark - RateView
+- (void)rateView:(RateView *)rateView ratingDidChange:(float)rating 
+{
+//    self.ratingLabel.text = [NSString stringWithFormat:@"%.1f/5.0 from %d dives", self.diveSiteToEdit.rating,[self.diveSiteToEdit.dive_logs count]];
 }
 
 @end

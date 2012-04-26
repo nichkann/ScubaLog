@@ -14,10 +14,6 @@
 		B82117A3152A3B2F00E29F44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117A2152A3B2F00E29F44 /* main.m */; };
 		B82117A7152A3B2F00E29F44 /* ScubaLogAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117A6152A3B2F00E29F44 /* ScubaLogAppDelegate.m */; };
 		B82117AA152A3B2F00E29F44 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82117A8152A3B2F00E29F44 /* MainStoryboard.storyboard */; };
-		B82117AF152A3B3000E29F44 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117AE152A3B3000E29F44 /* first.png */; };
-		B82117B1152A3B3000E29F44 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117B0152A3B3000E29F44 /* first@2x.png */; };
-		B82117B6152A3B3000E29F44 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117B5152A3B3000E29F44 /* second.png */; };
-		B82117B8152A3B3000E29F44 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82117B7152A3B3000E29F44 /* second@2x.png */; };
 		B82117C0152A3B3000E29F44 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82117BF152A3B3000E29F44 /* SenTestingKit.framework */; };
 		B82117C1152A3B3000E29F44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8211796152A3B2F00E29F44 /* UIKit.framework */; };
 		B82117C2152A3B3000E29F44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8211798152A3B2F00E29F44 /* Foundation.framework */; };
@@ -26,8 +22,25 @@
 		B82117D8152A3C3200E29F44 /* LogBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117D7152A3C3200E29F44 /* LogBookListViewController.m */; };
 		B82117DB152A3C4800E29F44 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117DA152A3C4800E29F44 /* DataModel.m */; };
 		B82117E2152A3D4900E29F44 /* ScubaLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117E1152A3D4800E29F44 /* ScubaLog.m */; };
-		B82117E5152A45C200E29F44 /* DiveSite.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117E4152A45C200E29F44 /* DiveSite.m */; };
-		B82117EC152A8C8100E29F44 /* ScubaLogDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117EB152A8C8100E29F44 /* ScubaLogDetailViewController.m */; };
+		B82117EC152A8C8100E29F44 /* DiveLogDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82117EB152A8C8100E29F44 /* DiveLogDetailViewController.m */; };
+		B85A609C154750DE00E72DE6 /* RateView.m in Sources */ = {isa = PBXBuildFile; fileRef = B85A609B154750DE00E72DE6 /* RateView.m */; };
+		B8834E0715418CB600C902D5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8834E0615418CB600C902D5 /* CoreData.framework */; };
+		B8834E0A15418CBE00C902D5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8834E0915418CBE00C902D5 /* MapKit.framework */; };
+		B8834E0D15418E8700C902D5 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8834E0B15418E8700C902D5 /* DataModel.xcdatamodeld */; };
+		B8834E0F15419A6700C902D5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8834E0E15419A6700C902D5 /* CoreLocation.framework */; };
+		B8834E12154213A400C902D5 /* HUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8834E11154213A400C902D5 /* HUDView.m */; };
+		B8851A7A1544313500C0A89D /* DiveSite.m in Sources */ = {isa = PBXBuildFile; fileRef = B8851A791544313500C0A89D /* DiveSite.m */; };
+		B8851A7E1544360D00C0A89D /* DiveSitePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8851A7D1544360D00C0A89D /* DiveSitePickerViewController.m */; };
+		B8851A811544426400C0A89D /* DiveSiteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8851A801544426400C0A89D /* DiveSiteDetailViewController.m */; };
+		B8851A881545A11A00C0A89D /* Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = B8851A861545A11A00C0A89D /* Checkmark.png */; };
+		B8851A891545A11A00C0A89D /* Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8851A871545A11A00C0A89D /* Checkmark@2x.png */; };
+		B8851A931545A58700C0A89D /* radar.png in Resources */ = {isa = PBXBuildFile; fileRef = B8851A911545A58700C0A89D /* radar.png */; };
+		B8851A941545A58700C0A89D /* radar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8851A921545A58700C0A89D /* radar@2x.png */; };
+		B8851A971546113600C0A89D /* DiveMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8851A961546113600C0A89D /* DiveMapViewController.m */; };
+		B8851A9A15471B7D00C0A89D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B8851A9915471B7D00C0A89D /* MBProgressHUD.m */; };
+		B8851AA41547417300C0A89D /* kermit_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = B8851AA11547417300C0A89D /* kermit_empty.png */; };
+		B8851AA51547417300C0A89D /* kermit_full.png in Resources */ = {isa = PBXBuildFile; fileRef = B8851AA21547417300C0A89D /* kermit_full.png */; };
+		B8851AA61547417300C0A89D /* kermit_half.png in Resources */ = {isa = PBXBuildFile; fileRef = B8851AA31547417300C0A89D /* kermit_half.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,10 +65,6 @@
 		B82117A5152A3B2F00E29F44 /* ScubaLogAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScubaLogAppDelegate.h; sourceTree = "<group>"; };
 		B82117A6152A3B2F00E29F44 /* ScubaLogAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScubaLogAppDelegate.m; sourceTree = "<group>"; };
 		B82117A9152A3B2F00E29F44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		B82117AE152A3B3000E29F44 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		B82117B0152A3B3000E29F44 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		B82117B5152A3B3000E29F44 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		B82117B7152A3B3000E29F44 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		B82117BE152A3B3000E29F44 /* ScubaLogTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScubaLogTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82117BF152A3B3000E29F44 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B82117C7152A3B3000E29F44 /* ScubaLogTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScubaLogTests-Info.plist"; sourceTree = "<group>"; };
@@ -68,10 +77,33 @@
 		B82117DA152A3C4800E29F44 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		B82117E0152A3D4800E29F44 /* ScubaLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScubaLog.h; sourceTree = "<group>"; };
 		B82117E1152A3D4800E29F44 /* ScubaLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScubaLog.m; sourceTree = "<group>"; };
-		B82117E3152A45C200E29F44 /* DiveSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiveSite.h; sourceTree = "<group>"; };
-		B82117E4152A45C200E29F44 /* DiveSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiveSite.m; sourceTree = "<group>"; };
-		B82117EA152A8C8100E29F44 /* ScubaLogDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScubaLogDetailViewController.h; sourceTree = "<group>"; };
-		B82117EB152A8C8100E29F44 /* ScubaLogDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScubaLogDetailViewController.m; sourceTree = "<group>"; };
+		B82117EA152A8C8100E29F44 /* DiveLogDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiveLogDetailViewController.h; sourceTree = "<group>"; };
+		B82117EB152A8C8100E29F44 /* DiveLogDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiveLogDetailViewController.m; sourceTree = "<group>"; };
+		B85A609A154750DE00E72DE6 /* RateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateView.h; sourceTree = "<group>"; };
+		B85A609B154750DE00E72DE6 /* RateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateView.m; sourceTree = "<group>"; };
+		B8834E0615418CB600C902D5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B8834E0915418CBE00C902D5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B8834E0C15418E8700C902D5 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		B8834E0E15419A6700C902D5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B8834E10154213A400C902D5 /* HUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUDView.h; path = ../../MyLocation/MyLocation/HUDView.h; sourceTree = "<group>"; };
+		B8834E11154213A400C902D5 /* HUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUDView.m; path = ../../MyLocation/MyLocation/HUDView.m; sourceTree = "<group>"; };
+		B8851A781544313500C0A89D /* DiveSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiveSite.h; sourceTree = "<group>"; };
+		B8851A791544313500C0A89D /* DiveSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiveSite.m; sourceTree = "<group>"; };
+		B8851A7C1544360D00C0A89D /* DiveSitePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiveSitePickerViewController.h; sourceTree = "<group>"; };
+		B8851A7D1544360D00C0A89D /* DiveSitePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiveSitePickerViewController.m; sourceTree = "<group>"; };
+		B8851A7F1544426400C0A89D /* DiveSiteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiveSiteDetailViewController.h; sourceTree = "<group>"; };
+		B8851A801544426400C0A89D /* DiveSiteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiveSiteDetailViewController.m; sourceTree = "<group>"; };
+		B8851A861545A11A00C0A89D /* Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkmark.png; sourceTree = "<group>"; };
+		B8851A871545A11A00C0A89D /* Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@2x.png"; sourceTree = "<group>"; };
+		B8851A911545A58700C0A89D /* radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radar.png; sourceTree = "<group>"; };
+		B8851A921545A58700C0A89D /* radar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radar@2x.png"; sourceTree = "<group>"; };
+		B8851A951546113600C0A89D /* DiveMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiveMapViewController.h; sourceTree = "<group>"; };
+		B8851A961546113600C0A89D /* DiveMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiveMapViewController.m; sourceTree = "<group>"; };
+		B8851A9815471B7D00C0A89D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		B8851A9915471B7D00C0A89D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		B8851AA11547417300C0A89D /* kermit_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_empty.png; sourceTree = "<group>"; };
+		B8851AA21547417300C0A89D /* kermit_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_full.png; sourceTree = "<group>"; };
+		B8851AA31547417300C0A89D /* kermit_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_half.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +111,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8834E0F15419A6700C902D5 /* CoreLocation.framework in Frameworks */,
+				B8834E0A15418CBE00C902D5 /* MapKit.framework in Frameworks */,
+				B8834E0715418CB600C902D5 /* CoreData.framework in Frameworks */,
 				B8211797152A3B2F00E29F44 /* UIKit.framework in Frameworks */,
 				B8211799152A3B2F00E29F44 /* Foundation.framework in Frameworks */,
 				B821179B152A3B2F00E29F44 /* CoreGraphics.framework in Frameworks */,
@@ -101,6 +136,9 @@
 		B8211787152A3B2F00E29F44 = {
 			isa = PBXGroup;
 			children = (
+				B8834E0E15419A6700C902D5 /* CoreLocation.framework */,
+				B8834E0915418CBE00C902D5 /* MapKit.framework */,
+				B8834E0615418CB600C902D5 /* CoreData.framework */,
 				B821179C152A3B2F00E29F44 /* ScubaLog */,
 				B82117C5152A3B3000E29F44 /* ScubaLogTests */,
 				B8211795152A3B2F00E29F44 /* Frameworks */,
@@ -133,21 +171,31 @@
 			children = (
 				B82117D9152A3C4800E29F44 /* DataModel.h */,
 				B82117DA152A3C4800E29F44 /* DataModel.m */,
-				B82117E0152A3D4800E29F44 /* ScubaLog.h */,
-				B82117E1152A3D4800E29F44 /* ScubaLog.m */,
-				B82117EA152A8C8100E29F44 /* ScubaLogDetailViewController.h */,
-				B82117EB152A8C8100E29F44 /* ScubaLogDetailViewController.m */,
-				B82117E3152A45C200E29F44 /* DiveSite.h */,
-				B82117E4152A45C200E29F44 /* DiveSite.m */,
-				B82117AE152A3B3000E29F44 /* first.png */,
-				B82117B0152A3B3000E29F44 /* first@2x.png */,
+				B8834E0B15418E8700C902D5 /* DataModel.xcdatamodeld */,
+				B82117EA152A8C8100E29F44 /* DiveLogDetailViewController.h */,
+				B82117EB152A8C8100E29F44 /* DiveLogDetailViewController.m */,
+				B8851A951546113600C0A89D /* DiveMapViewController.h */,
+				B8851A961546113600C0A89D /* DiveMapViewController.m */,
+				B8851A781544313500C0A89D /* DiveSite.h */,
+				B8851A791544313500C0A89D /* DiveSite.m */,
+				B8851A7F1544426400C0A89D /* DiveSiteDetailViewController.h */,
+				B8851A801544426400C0A89D /* DiveSiteDetailViewController.m */,
+				B8851A7C1544360D00C0A89D /* DiveSitePickerViewController.h */,
+				B8851A7D1544360D00C0A89D /* DiveSitePickerViewController.m */,
+				B8834E10154213A400C902D5 /* HUDView.h */,
+				B8834E11154213A400C902D5 /* HUDView.m */,
 				B82117D6152A3C3200E29F44 /* LogBookListViewController.h */,
 				B82117D7152A3C3200E29F44 /* LogBookListViewController.m */,
 				B82117A8152A3B2F00E29F44 /* MainStoryboard.storyboard */,
+				B8851A9815471B7D00C0A89D /* MBProgressHUD.h */,
+				B8851A9915471B7D00C0A89D /* MBProgressHUD.m */,
+				B85A609A154750DE00E72DE6 /* RateView.h */,
+				B85A609B154750DE00E72DE6 /* RateView.m */,
+				B8834E131542264100C902D5 /* Resources */,
+				B82117E0152A3D4800E29F44 /* ScubaLog.h */,
+				B82117E1152A3D4800E29F44 /* ScubaLog.m */,
 				B82117A5152A3B2F00E29F44 /* ScubaLogAppDelegate.h */,
 				B82117A6152A3B2F00E29F44 /* ScubaLogAppDelegate.m */,
-				B82117B5152A3B3000E29F44 /* second.png */,
-				B82117B7152A3B3000E29F44 /* second@2x.png */,
 				B821179D152A3B2F00E29F44 /* Supporting Files */,
 			);
 			path = ScubaLog;
@@ -181,6 +229,36 @@
 				B82117C8152A3B3000E29F44 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8834E131542264100C902D5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B8834E151542268700C902D5 /* Images */,
+				B8834E141542266400C902D5 /* Icons */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B8834E141542266400C902D5 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		B8834E151542268700C902D5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B8851AA11547417300C0A89D /* kermit_empty.png */,
+				B8851AA21547417300C0A89D /* kermit_full.png */,
+				B8851AA31547417300C0A89D /* kermit_half.png */,
+				B8851A911545A58700C0A89D /* radar.png */,
+				B8851A921545A58700C0A89D /* radar@2x.png */,
+				B8851A861545A11A00C0A89D /* Checkmark.png */,
+				B8851A871545A11A00C0A89D /* Checkmark@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,10 +335,13 @@
 			files = (
 				B82117A1152A3B2F00E29F44 /* InfoPlist.strings in Resources */,
 				B82117AA152A3B2F00E29F44 /* MainStoryboard.storyboard in Resources */,
-				B82117AF152A3B3000E29F44 /* first.png in Resources */,
-				B82117B1152A3B3000E29F44 /* first@2x.png in Resources */,
-				B82117B6152A3B3000E29F44 /* second.png in Resources */,
-				B82117B8152A3B3000E29F44 /* second@2x.png in Resources */,
+				B8851A881545A11A00C0A89D /* Checkmark.png in Resources */,
+				B8851A891545A11A00C0A89D /* Checkmark@2x.png in Resources */,
+				B8851A931545A58700C0A89D /* radar.png in Resources */,
+				B8851A941545A58700C0A89D /* radar@2x.png in Resources */,
+				B8851AA41547417300C0A89D /* kermit_empty.png in Resources */,
+				B8851AA51547417300C0A89D /* kermit_full.png in Resources */,
+				B8851AA61547417300C0A89D /* kermit_half.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,8 +381,15 @@
 				B82117D8152A3C3200E29F44 /* LogBookListViewController.m in Sources */,
 				B82117DB152A3C4800E29F44 /* DataModel.m in Sources */,
 				B82117E2152A3D4900E29F44 /* ScubaLog.m in Sources */,
-				B82117E5152A45C200E29F44 /* DiveSite.m in Sources */,
-				B82117EC152A8C8100E29F44 /* ScubaLogDetailViewController.m in Sources */,
+				B82117EC152A8C8100E29F44 /* DiveLogDetailViewController.m in Sources */,
+				B8834E0D15418E8700C902D5 /* DataModel.xcdatamodeld in Sources */,
+				B8834E12154213A400C902D5 /* HUDView.m in Sources */,
+				B8851A7A1544313500C0A89D /* DiveSite.m in Sources */,
+				B8851A7E1544360D00C0A89D /* DiveSitePickerViewController.m in Sources */,
+				B8851A811544426400C0A89D /* DiveSiteDetailViewController.m in Sources */,
+				B8851A971546113600C0A89D /* DiveMapViewController.m in Sources */,
+				B8851A9A15471B7D00C0A89D /* MBProgressHUD.m in Sources */,
+				B85A609C154750DE00E72DE6 /* RateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +571,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B8834E0B15418E8700C902D5 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B8834E0C15418E8700C902D5 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = B8834E0C15418E8700C902D5 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B8211789152A3B2F00E29F44 /* Project object */;
 }

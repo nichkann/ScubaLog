@@ -10,12 +10,15 @@
 #import <CoreData/CoreData.h>
 
 
-@interface DiveSite : NSManagedObject
+@interface DiveSite : NSManagedObject <MKAnnotation>
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * rating;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) CLPlacemark *placemark;
+@property (nonatomic, retain) NSMutableSet *dive_logs;
+
+- (void)updateRating;
 
 @end

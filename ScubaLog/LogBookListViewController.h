@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ScubaLog.h"
 
-#import "ScubaLogDetailViewController.h"
+#import "DiveLogDetailViewController.h"
 
 @interface LogBookListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
